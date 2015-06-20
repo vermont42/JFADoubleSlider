@@ -68,7 +68,7 @@ static const int PRECISION = 1;
 
 - (void)setAbsMaxVal:(float)absMaxVal
 {
-    if (absMaxVal > _curMaxVal)
+    if (!_doneSettingUp || absMaxVal > _curMaxVal)
     {
         _absMaxVal = absMaxVal;
         [self setNeedsDisplay];
@@ -247,7 +247,7 @@ static const int PRECISION = 1;
 
 - (void)setAbsMinVal:(float)absMinVal
 {
-    if (absMinVal < _curMinVal)
+    if (!_doneSettingUp || absMinVal < _curMinVal)
     {
         _absMinVal = absMinVal;
         [self setNeedsDisplay];
