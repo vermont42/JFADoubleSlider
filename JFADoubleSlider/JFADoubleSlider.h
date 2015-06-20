@@ -32,7 +32,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable BOOL reportInteger; // display and report knob values as ints
 @property (nonatomic) IBInspectable BOOL showValues; // show knob values below knobs
 @property (nonatomic, getter=isContinuous) IBInspectable BOOL continuous; // report new knob values as they change
-@property (weak, nonatomic) id<JFADoubleSliderDelegate> delegate; // see JFADoubleSliderDelegate comment
+@property (weak, nonatomic) IBOutlet id<JFADoubleSliderDelegate> delegate; // see JFADoubleSliderDelegate comment
 - (void)setCurMaxVal:(float)curMaxVal animated:(BOOL)animated; // set right knob value, possiby animating
 - (void)setCurMinVal:(float)curMinVal animated:(BOOL)animated; // set left knob value, possibly animating
 @end
