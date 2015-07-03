@@ -375,8 +375,8 @@ static const int PRECISION = 1;
         CGFloat firstX = ((self.curMinVal - self.absMinVal) / virtualWidth) * adjustedBoundsWidth + KNOB_WIDTH / 2;
         CGFloat secondX = ((self.curMaxVal - self.absMinVal) / virtualWidth) * adjustedBoundsWidth + KNOB_WIDTH / 2;
         CGFloat gestureX = [gesture locationInView:self].x;
-        float distFirst = fabsf(gestureX - firstX);
-        float distSecond = fabsf(gestureX - secondX);
+        float distFirst = ABS(gestureX - firstX);
+        float distSecond = ABS(gestureX - secondX);
         if (distFirst < distSecond)
         {
             self.currentKnob = LEFT_KNOB;
