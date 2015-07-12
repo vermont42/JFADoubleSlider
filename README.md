@@ -9,7 +9,7 @@ To demo `JFADoubleSlider`, clone the repository, double-click `JFADoubleSlider.x
 ## Use
 Here are the steps to use `JFADoubleSlider` in your app.
 
-1. Add `JFADoubleSlider.h` and `JFADoubleSlider.m` to your project.
+1. Add `JFADoubleSlider.h` and `JFADoubleSlider.m` to your project or grab the JFADoubleSlider CocoaPod.
 
 2. Import `JFADoubleSlider.h` in your view controller’s .m file.
 
@@ -53,6 +53,8 @@ For descriptions of `JFADoubleSlider`’s properties and the control’s protoco
 Thanks to Jack Cox for his [tutorial](http://captechconsulting.com/blog/jack-cox/ibdesignables-xcode-6-and-ios-8) on IBDesignable/IBInspectable. 
 
 Thanks to [PJ Vea](http://www.veasoftware.com) for reviewing the code.
+
+Thanks to Rob Shaw for various bug fixes and help with CocoaPods.
 
 ## License
 ```
