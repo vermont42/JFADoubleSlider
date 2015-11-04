@@ -31,6 +31,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable int precision; // number of digits after decimal point to show
 @property (nonatomic) IBInspectable BOOL reportInteger; // display and report knob values as ints
 @property (nonatomic) IBInspectable BOOL showValues; // show knob values below knobs
+@property (nonatomic) IBInspectable BOOL valuesAbove; // show knob values above knobs - must have showValues=YES
 @property (nonatomic, getter=isContinuous) IBInspectable BOOL continuous; // report new knob values as they change
 @property (weak, nonatomic) IBOutlet id<JFADoubleSliderDelegate> delegate; // see JFADoubleSliderDelegate comment
 - (void)setCurMaxVal:(float)curMaxVal animated:(BOOL)animated; // set right knob value, possiby animating

@@ -266,6 +266,12 @@ static const int PRECISION = 1;
     [self setNeedsDisplay];
 }
 
+- (void)setValuesAbove:(BOOL)valuesAbove
+{
+    _valuesAbove = valuesAbove;
+    [self setNeedsDisplay];
+}
+
 - (float)valueFudge
 {
     if (_valueFudge == 0.0)
@@ -299,6 +305,7 @@ static const int PRECISION = 1;
     self.curMaxVal = CUR_MAX_VAL;
     self.reportInteger = NO;
     self.showValues = YES;
+    self.valuesAbove = NO;
     self.continuous = YES;
     self.precision = PRECISION;
     self.currentKnob = NEITHER;
@@ -458,7 +465,9 @@ static const int PRECISION = 1;
         {
             valueX = self.bounds.size.width - valueSize.width;
         }
-        [valueString drawAtPoint:CGPointMake(valueX, halfBoundsHeight + KNOB_WIDTH / 2)
+        
+        CGFloat valueY = (self.valuesAbove) ? 0.0 :  halfBoundsHeight + KNOB_WIDTH / 2;
+        [valueString drawAtPoint:CGPointMake(valueX, valueY)
                   withAttributes:@{ NSForegroundColorAttributeName:self.valueColor }];
     }
 }
