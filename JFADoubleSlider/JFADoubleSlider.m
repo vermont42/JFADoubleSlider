@@ -325,6 +325,11 @@ static const int PRECISION = 1;
     [self setNeedsDisplay];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (CGSize)intrinsicContentSize
 {
     return CGSizeMake(UIViewNoIntrinsicMetric, INTRINSIC_HEIGHT);
