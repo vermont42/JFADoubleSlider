@@ -36,4 +36,5 @@ IB_DESIGNABLE
 @property (weak, nonatomic) IBOutlet id<JFADoubleSliderDelegate> delegate; // see JFADoubleSliderDelegate comment
 - (void)setCurMaxVal:(float)curMaxVal animated:(BOOL)animated; // set right knob value, possiby animating
 - (void)setCurMinVal:(float)curMinVal animated:(BOOL)animated; // set left knob value, possibly animating
+- (void)setCurMinAndMaxVal:(float)curMinVal argument2:(float)curMaxVal; // set left and right knob value at the same time
 @end

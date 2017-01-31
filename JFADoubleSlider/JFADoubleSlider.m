@@ -232,6 +232,64 @@ static const int PRECISION = 1;
     }
 }
 
+
+- (void)setCurMinAndMaxVal:(float)curMinVal argument2:(float)curMaxVal{
+    if ([self proposedCurMinValIsGood:curMinVal])
+    {
+        int prevIntCurMinVal = (int)lroundf(_curMinVal);
+        _curMinVal = curMinVal;
+        if (!self.animationHappening && (self.isContinuous || !self.panHappening))
+        {
+            if (self.reportInteger)
+            {
+                int newIntCurMinVal = (int)lroundf(curMinVal);
+                if (prevIntCurMinVal != newIntCurMinVal || !self.panHappening)
+                {
+                    if ([self.delegate respondsToSelector:@selector(minIntValueChanged:)])
+                    {
+                        [self.delegate minIntValueChanged:newIntCurMinVal];
+                    }
+                }
+            }
+            else
+            {
+                if ([self.delegate respondsToSelector:@selector(minValueChanged:)])
+                {
+                    [self.delegate minValueChanged:_curMinVal];
+                }
+            }
+        }
+        [self setNeedsDisplay];
+    }
+    if ([self proposedCurMaxValIsGood:curMaxVal])
+    {
+        int prevIntCurMaxVal = (int)lroundf(_curMaxVal);
+        _curMaxVal = curMaxVal;
+        if (!self.animationHappening && (self.isContinuous || !self.panHappening))
+        {
+            if (self.reportInteger)
+            {
+                int newIntCurMaxVal = (int)lroundf(curMaxVal);
+                if (prevIntCurMaxVal != newIntCurMaxVal  || !self.panHappening)
+                {
+                    if ([self.delegate respondsToSelector:@selector(maxIntValueChanged:)])
+                    {
+                        [self.delegate maxIntValueChanged:newIntCurMaxVal];
+                    }
+                }
+            }
+            else
+            {
+                if ([self.delegate respondsToSelector:@selector(maxValueChanged:)])
+                {
+                    [self.delegate maxValueChanged:_curMaxVal];
+                }
+            }
+        }
+        [self setNeedsDisplay];
+    }
+}
+
 - (void)updateLeftKnob:(NSTimer *)timer
 {
     self.curMinVal += self.deltaPerFrame;
